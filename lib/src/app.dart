@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ezy_course_app/src/services/router/routes.dart';
 
-import 'features/root/views/splash_screen.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends ConsumerWidget {
+  const App({super.key});
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = ref.watch(goRouterProvider);
+    return MaterialApp.router(
+      routerConfig: appRouter,
       title: 'EzyCourse Demo App',
-      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

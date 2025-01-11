@@ -37,7 +37,11 @@ class ResponseWrapper<R> {
         data: purserFunction(rawResponse.data),
       );
     } catch (err, stacktrace) {
-      log("### ResponseWrapper Error ###", error: err, stackTrace: stacktrace);
+      log(
+        error: err,
+        stackTrace: stacktrace,
+        "### ResponseWrapper Error(${rawResponse.statusCode} || ${rawResponse.realUri}) ###\nResponse: ${rawResponse.data}",
+      );
 
       return ResponseWrapper(
         rawResponse: rawResponse,

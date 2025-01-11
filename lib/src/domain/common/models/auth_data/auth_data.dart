@@ -7,12 +7,9 @@ part 'auth_data.freezed.dart';
 @freezed
 class AuthData with _$AuthData {
   const factory AuthData({
-    required String? type,
-    required String? token,
-  }) = _AuthResponse;
-
-  const AuthData._();
-  bool get isAUthenticated => token != null || type != null;
+    required String type,
+    required String token,
+  }) = _AuthData;
 
   factory AuthData.fromJson(Map<String, Object?> json) =>
       _$AuthDataFromJson(json);

@@ -10,12 +10,12 @@ import '../initializer/views/error_screen.dart';
 final _navigatorKey = GlobalKey<NavigatorState>(debugLabel: '#root');
 final goRouterProvider = Provider<GoRouter>(
   (ref) {
-    final authState = ref.watch(authStateProvider);
+    final authState = ref.watch(authStateProvider).requireValue;
     return GoRouter(
       debugLogDiagnostics: true,
-      restorationScopeId: "#root",
-      initialLocation: '/news_feed',
       navigatorKey: _navigatorKey,
+      initialLocation: '/news_feed',
+      restorationScopeId: '#root_router',
       routes: [
         GoRoute(
           path: '/login',
@@ -30,7 +30,7 @@ final goRouterProvider = Provider<GoRouter>(
         errorObject: state.error as Object,
       ),
       redirect: (context, state) async {
-        if (!authState.isAUthenticated) {
+        if (authState == null) {
           return '/login';
         }
         return null;

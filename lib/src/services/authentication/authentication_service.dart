@@ -5,17 +5,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// This provider is used to manage the authentication state of the user.
 final authStateProvider =
-    NotifierProvider<AuthenticationStateNotifier, AuthData>(
+    AsyncNotifierProvider<AuthenticationStateNotifier, AuthData?>(
   AuthenticationStateNotifier.new,
 );
 
-class AuthenticationStateNotifier extends Notifier<AuthData> {
+class AuthenticationStateNotifier extends AsyncNotifier<AuthData?> {
   late final AuthenticationStorage _storage = const AuthenticationStorage();
 
   @override
-  build() {
-    final data = _storage.getUserToken();
-    return AuthData(token: data?.accessToken, type: data?.tokenType);
+  build() async {
+    final data = await _storage.getUserToken();
+    return data == null
+        ? null
+        : AuthData(token: data.accessToken, type: data.tokenType);
   }
 
   logout() async {

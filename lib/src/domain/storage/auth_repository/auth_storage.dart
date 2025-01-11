@@ -1,31 +1,28 @@
-import 'package:hive/hive.dart';
-import '../source/hive_config.dart';
+import '../source/secure_storage.dart';
 
 class AuthenticationStorage {
   const AuthenticationStorage();
-  HiveConfig get _config => HiveConfig();
-
-  Box<String> get _myBox => _config.authenticationBox;
+  StorageConfig get _config => StorageConfig();
 
   static const tokenTypeKey = "#TOKEN_TYPE";
   static const accessTokenKey = "#ACCESS_TOKEN";
 
   Future<void> saveUserToken(String? accessToken, String? tokenType) async {
     if (accessToken == null || tokenType == null) return;
-    await _myBox.put(tokenTypeKey, tokenType);
-    await _myBox.put(accessTokenKey, accessToken);
+    await _config.storage.write(key: tokenTypeKey, value: tokenType);
+    await _config.storage.write(key: accessTokenKey, value: accessToken);
   }
 
-  ({String tokenType, String accessToken})? getUserToken() {
-    final type = _myBox.get(tokenTypeKey);
-    final token = _myBox.get(accessTokenKey);
-
+  Future<({String tokenType, String accessToken})?> getUserToken() async {
+    final type = await _config.storage.read(key: tokenTypeKey);
+    final token = await _config.storage.read(key: accessTokenKey);
     return (token == null || type == null)
         ? null
         : (accessToken: token, tokenType: type);
   }
 
   Future<void> clearAuthData() async {
-    await _myBox.clear();
+    await _config.storage.delete(key: tokenTypeKey);
+    await _config.storage.delete(key: accessTokenKey);
   }
 }

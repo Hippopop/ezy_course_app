@@ -1,4 +1,4 @@
-import 'package:ezy_course_app/src/services/theme/theme_config.dart';
+import 'package:ezy_course_app/src/services/app_theme/theme_config.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {

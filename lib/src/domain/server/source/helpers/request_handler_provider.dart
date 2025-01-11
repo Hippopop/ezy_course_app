@@ -9,18 +9,22 @@ import 'response_wrapper.dart';
 class RequestHandler {
   final Dio _dio;
   final String baseURl;
-  final List<Interceptor>? interceptor;
+  final String? currentToken;
 
   RequestHandler({
+    this.currentToken,
     required this.baseURl,
-    this.interceptor,
-  }) : _dio = (Dio(
+  }) : _dio = Dio(
           BaseOptions(
             baseUrl: APIConfig.baseURL,
             receiveDataWhenStatusError: true,
             validateStatus: (status) => true,
+            headers: {
+              "Authorization": currentToken,
+              "Content-Type": "application/json",
+            },
           ),
-        )..interceptors.addAll(interceptor ?? []));
+        );
 
   Dio get dio => _dio;
   String get mainUrl => APIConfig.baseURL;

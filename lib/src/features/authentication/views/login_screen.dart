@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const route = "/login";
   const LoginScreen({super.key});
 
   @override
@@ -26,6 +27,15 @@ class _LoginScreenState extends State<LoginScreen> {
       TextEditingController();
   bool _isObscured = true;
   bool _rememberMe = false;
+
+  @override
+  void dispose() {
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +222,7 @@ class _RememberMe extends StatelessWidget {
             color: context.color.theme,
           ),
         ),
-        contentPadding: emptyPadding,
+        contentPadding: emptyInset,
         visualDensity: VisualDensity.compact,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         checkboxShape: RoundedRectangleBorder(
@@ -265,6 +275,8 @@ class _LoginFormField extends StatelessWidget {
           focusNode: focusNode,
           controller: controller,
           cursorColor: context.color.theme,
+          onTapOutside: (event) => focusNode?.unfocus(),
+          onFieldSubmitted: (value) => focusNode?.nextFocus(),
           validator: FieldValidator.validate(name: title, validators ?? []),
           style: context.textTheme.bodyLarge?.copyWith(
             color: context.color.theme,

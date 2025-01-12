@@ -8,7 +8,8 @@ final requestHandlerProvider = Provider<RequestHandler>(
     final state = ref.watch(authStateProvider);
     return RequestHandler(
       baseURl: APIConfig.baseURL,
-      currentToken: state.valueOrNull?.token
+      currentToken: state.valueOrNull?.token,
+      currentTokenType: state.valueOrNull?.type,
     );
   },
 );

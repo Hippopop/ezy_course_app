@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../source/secure_storage.dart';
 
 class ThemeStorage {
-const ThemeStorage();
+  const ThemeStorage();
 
   static const String key = '#CURRENT_THEME';
   StorageConfig get _config => StorageConfig();

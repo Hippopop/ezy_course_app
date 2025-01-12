@@ -28,7 +28,9 @@ class ResponseWrapper<R> {
     required Response rawResponse,
     required RawToDataPurse<R> purserFunction,
   }) {
-    if (print) log(rawResponse.data.toString());
+    if (print) {
+      log("### ResponseWrapper(${rawResponse.statusCode} || ${rawResponse.realUri}) ###\n${rawResponse.data}");
+    }
     try {
       return ResponseWrapper(
         rawResponse: rawResponse,
@@ -37,6 +39,7 @@ class ResponseWrapper<R> {
         data: purserFunction(rawResponse.data),
       );
     } catch (err, stacktrace) {
+      log("Headers : ${rawResponse.headers}");
       log(
         error: err,
         stackTrace: stacktrace,

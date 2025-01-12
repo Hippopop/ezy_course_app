@@ -12,13 +12,15 @@ const _opposite = Colors.black;
 const _text = Colors.black;
 const _primaryColor = Color(0xFF004852);
 const _secondary = Color(0xFF023D45);
+const _background = Color(0xfff3f3f3);
 const _bgShade = Color(0x0000001A);
 const _lightBg = Color(0xFF156A76);
 const _primaryAccent = Color(0xFF023D45);
 const _sText = Color(0x77F5F5FF);
+const _secondaryAccent = Color(0xFF6762ff);
+const _extraText = Colors.grey;
 
 const _mainAccent = Color(0xFFE8F54A);
-const _secondaryAccent = Color(0xFF1D1D35);
 
 const _errorColor = Color(0xFFF03738);
 const _warningColor = Color(0xFFF3BB1C);
@@ -26,9 +28,9 @@ const _warningColor = Color(0xFFF3BB1C);
 const lightThemeKey = "#BASE_LIGHT_THEME";
 final lightTheme = ThemeData.light(useMaterial3: false).copyWith(
   primaryColor: _primaryColor,
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: _background,
   iconTheme: const IconThemeData(color: _primaryAccent),
-  textTheme: GoogleFonts.figtreeTextTheme(TextTheme(
+  textTheme: GoogleFonts.figtreeTextTheme(const TextTheme(
     bodyMedium: TextStyle(
       fontSize: 16,
     ),
@@ -60,12 +62,23 @@ final lightTheme = ThemeData.light(useMaterial3: false).copyWith(
     selectedIconTheme: const IconThemeData(color: _primaryColor),
     showUnselectedLabels: true,
   ),
+  appBarTheme: AppBarTheme(
+    titleSpacing: 0,
+    toolbarHeight: 100,
+    backgroundColor: _primaryColor,
+    titleTextStyle: GoogleFonts.figtreeTextTheme().bodyLarge?.copyWith(
+          color: _theme,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+  ),
   checkboxTheme: const CheckboxThemeData(
     side: BorderSide(
       color: _sText,
       width: 2,
     ),
   ),
+  dividerColor: _extraText.withOpacity(0.8),
   extensions: {
     ColorTheme(
       text: _text,
@@ -78,11 +91,12 @@ final lightTheme = ThemeData.light(useMaterial3: false).copyWith(
       primaryAccent: _primaryAccent,
       secondaryBackground: _bgShade,
       accent: _mainAccent,
+      primaryText: _extraText,
+      secondaryAccent: _secondaryAccent,
       //
 
       errorState: _errorColor,
       warningState: _warningColor,
-      secondaryAccent: _secondaryAccent,
     ),
   },
 );

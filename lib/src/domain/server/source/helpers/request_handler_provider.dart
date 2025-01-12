@@ -10,9 +10,11 @@ class RequestHandler {
   final Dio _dio;
   final String baseURl;
   final String? currentToken;
+  final String? currentTokenType;
 
   RequestHandler({
     this.currentToken,
+    this.currentTokenType,
     required this.baseURl,
   }) : _dio = Dio(
           BaseOptions(
@@ -20,7 +22,7 @@ class RequestHandler {
             receiveDataWhenStatusError: true,
             validateStatus: (status) => true,
             headers: {
-              "Authorization": currentToken,
+              "Authorization": "$currentTokenType $currentToken",
               "Content-Type": "application/json",
             },
           ),

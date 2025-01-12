@@ -33,6 +33,8 @@ class LoginStateNotifier extends AsyncNotifier<LoginScreenState?> {
       final res = await _authRepo.login(email: email, password: password);
       if (rememberMe) {
         await _credStorage.saveUserCredentials(email, password);
+      } else {
+        await _credStorage.clearCredentialsData();
       }
       if (res.isSuccess) {
         await ref.read(authStateProvider.notifier).saveAuthData(res.data!);

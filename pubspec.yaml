@@ -9,14 +9,12 @@ environment:
 dependencies:
   collection: ^1.18.0
   dio: ^5.7.0
-  drift: ^2.23.1
-  drift_flutter: ^0.2.4
   flutter:
     sdk: flutter
   flutter_animate: ^4.5.2
   flutter_linkify: ^6.0.0
   flutter_riverpod: ^2.6.1
-  flutter_secure_storage: ^4.2.1
+  flutter_secure_storage: ^9.2.4
   flutter_staggered_animations: ^1.1.1
   flutter_svg: ^2.0.17
   freezed_annotation: ^2.4.4
@@ -38,10 +36,15 @@ dev_dependencies:
   riverpod_lint: ^2.6.3
   freezed: ^2.5.7
   json_serializable: ^6.9.0
-  drift_dev: ^2.23.1
+
 
 flutter:
   uses-material-design: true
   assets:
     - assets/icons/
     - assets/images/
+
+
+
+
+

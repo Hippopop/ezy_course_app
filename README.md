@@ -1,7 +1,6 @@
-
 # ezyCourse
 
-ezyCourse is a feature-rich course application built using Flutter. It provides a seamless experience for users to browse, create, and interact with course-related posts. The app adheres to the Clean Architecture design principles, ensuring modularity, scalability, and maintainability.
+ezyCourse is a simple course app made with Flutter. It lets you browse and create posts with smooth animations. The app is built with clean code that's easy to update and maintain.
 
 ---
 
@@ -38,7 +37,7 @@ ezyCourse is a feature-rich course application built using Flutter. It provides 
 ## Architecture
 
 ezyCourse is implemented using **Clean Architecture**. The app is organized into distinct layers:
-- **Presentation Layer**: Handles UI components, utilizing ViewModels for state management.
+- **Presentation/Feature Layer**: Handles UI components, utilizing ViewModels for state management.
 - **Domain Layer**: Encapsulates business logic with use cases.
 - **Data Layer**: Manages data operations, including API integration and local storage.
 
@@ -82,7 +81,7 @@ This structure ensures:
 
 ## Deliverables
 
-- Android APK
+- [Android APK](/installables/APK/EzCourseApp.apk)
 - GitHub repository: [ezyCourse Repo](https://github.com/Hippopop/ezy_course_app)
 - Compatible with both Android and iOS.
 
@@ -92,3 +91,14 @@ This structure ensures:
 
 - [Figma Design](https://www.figma.com/design/0NudwHKVSL2egvlbicdGYH/Test-Appifylab?node-id=442-2034&p=f&t=MZ5TOPzmgPYN0UmW-0)
 - [API Documentation](https://docs.google.com/document/d/1tnxEbZ9z223FG9CgYZFGP2ImYXheSUWtE9tNcQtLGkE/edit?usp=sharing)
+
+---
+
+## Screenshots
+| ![Screenshot](screenshots/screenshot-1.jpeg) | ![Screenshot](screenshots/screenshot-2.jpeg) | ![Screenshot](screenshots/screenshot-3.jpeg) |
+| :------------------------------------------: | :------------------------------------------: | :------------------------------------------: |
+| ![Screenshot](screenshots/screenshot-4.jpeg) | ![Screenshot](screenshots/screenshot-5.jpeg) | ![Screenshot](screenshots/screenshot-6.jpeg) |
+|                Thank You! 💙✨                 | ![Screenshot](screenshots/screenshot-7.jpeg) |                 Much Love! 💕                 |
+
+
+

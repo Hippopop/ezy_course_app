@@ -188,7 +188,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
 class _RememberMe extends StatelessWidget {
   const _RememberMe({
-    super.key,
     required this.state,
     required this.onChanged,
   });
@@ -239,7 +238,6 @@ class _RememberMe extends StatelessWidget {
 
 class _LoginFormField extends StatelessWidget {
   const _LoginFormField({
-    super.key,
     this.focusNode,
     this.controller,
     this.validators,
@@ -296,7 +294,6 @@ class _LoginFormField extends StatelessWidget {
 
 class _LoginFormBg extends StatelessWidget {
   const _LoginFormBg({
-    super.key,
     required this.child,
   });
 
@@ -326,9 +323,7 @@ class _LoginFormBg extends StatelessWidget {
 }
 
 class _TopLogoSection extends StatelessWidget {
-  const _TopLogoSection({
-    super.key,
-  });
+  const _TopLogoSection();
 
   @override
   Widget build(BuildContext context) {
@@ -354,9 +349,7 @@ class _TopLogoSection extends StatelessWidget {
 }
 
 class _LoginScreenBg extends StatelessWidget {
-  const _LoginScreenBg({
-    super.key,
-  });
+  const _LoginScreenBg();
 
   @override
   Widget build(BuildContext context) {

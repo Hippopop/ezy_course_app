@@ -49,7 +49,7 @@ final lightTheme = ThemeData.light(useMaterial3: false).copyWith(
     style: FilledButton.styleFrom(
       padding: vertical12,
       backgroundColor: _mainAccent,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: brA8,
       ),
     ),

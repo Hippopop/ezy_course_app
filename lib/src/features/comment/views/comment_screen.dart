@@ -3,7 +3,6 @@ import 'package:ezy_course_app/src/constants/design/border_radius.dart';
 import 'package:ezy_course_app/src/constants/design/paddings.dart';
 import 'package:ezy_course_app/src/constants/server/api_config.dart';
 import 'package:ezy_course_app/src/domain/server/post_repository/models/post_comment_response/post_comment_model.dart';
-import 'package:ezy_course_app/src/domain/server/post_repository/models/post_data/like_type.dart';
 import 'package:ezy_course_app/src/features/comment/controllers/post_comment_controller.dart';
 import 'package:ezy_course_app/src/features/news_feed/controllers/single_post_controller.dart';
 import 'package:ezy_course_app/src/features/news_feed/views/widgets/reaction_button.dart';
@@ -313,7 +312,7 @@ class SingleCommentWidget extends StatelessWidget {
                                 : null,
                           ),
                           onPressed: () {},
-                          child: Text("Like"),
+                          child: const Text("Like"),
                         ),
                         TextButton(
                           style: TextButton.styleFrom(
@@ -322,7 +321,7 @@ class SingleCommentWidget extends StatelessWidget {
                           onPressed: () {},
                           child: const Text("Reply"),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         if ((comment.likeCount ?? 0) != 0) ...[
                           Text(
                             "${comment.likeCount ?? 0}",

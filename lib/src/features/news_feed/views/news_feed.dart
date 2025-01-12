@@ -164,9 +164,7 @@ class _NewsFeedScreenState extends ConsumerState<NewsFeedScreen> {
 }
 
 class _WritePostCard extends StatelessWidget {
-  const _WritePostCard({
-    super.key,
-  });
+  const _WritePostCard();
 
   @override
   Widget build(BuildContext context) {

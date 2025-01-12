@@ -88,8 +88,8 @@ class _ReactionButtonState extends State<ReactionButton> {
       onLongPressStart: (details) async {
         final screenWidth = MediaQuery.of(context).size.width;
         double left = details.globalPosition.dx - 20;
-        double top = details.globalPosition.dy - 60;
-        if (left > (screenWidth * 0.2)) {
+        double top = details.globalPosition.dy - 80;
+        if (left > (screenWidth * 0.3)) {
           left = screenWidth * 0.2;
         }
         double width = screenWidth - left;

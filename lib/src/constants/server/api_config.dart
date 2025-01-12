@@ -7,6 +7,8 @@ class APIConfig {
   static String post = "/community/getFeed?status=feed";
   static String like = "/community/createLike";
   static String createPost = "/community/createFeedWithUpload";
+  static String fetchComments = "/comment/getComment/";
+  static String createComment = "/comment/createComment";
   static String placeholderImageLink =
       "https://letcheck.b-cdn.net/human_icon.png";
 }

@@ -78,7 +78,17 @@ final lightTheme = ThemeData.light(useMaterial3: false).copyWith(
       width: 2,
     ),
   ),
+  bottomSheetTheme: const BottomSheetThemeData(
+    backgroundColor: Colors.transparent,
+    constraints: BoxConstraints(),
+  ),
   dividerColor: _extraText.withOpacity(0.8),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      padding: emptyInset,
+      visualDensity: VisualDensity.compact,
+    ),
+  ),
   extensions: {
     ColorTheme(
       text: _text,

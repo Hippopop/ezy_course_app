@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:ezy_course_app/src/constants/assets/assets.dart';
 import 'package:ezy_course_app/src/constants/design/border_radius.dart';

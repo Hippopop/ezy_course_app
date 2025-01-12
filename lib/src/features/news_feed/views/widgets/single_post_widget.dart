@@ -4,6 +4,7 @@ import 'package:ezy_course_app/src/constants/design/paddings.dart';
 import 'package:ezy_course_app/src/constants/server/api_config.dart';
 import 'package:ezy_course_app/src/domain/server/post_repository/models/post_data/post_data.dart';
 import 'package:ezy_course_app/src/domain/server/post_repository/models/post_data/user.dart';
+import 'package:ezy_course_app/src/features/comment/views/comment_screen.dart';
 import 'package:ezy_course_app/src/features/news_feed/controllers/single_post_controller.dart';
 import 'package:ezy_course_app/src/services/app_theme/app_theme.dart';
 import 'package:ezy_course_app/src/utilities/extensions/date_time_extensions.dart';
@@ -13,6 +14,7 @@ import 'package:ezy_course_app/src/utilities/widgets/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'stacked_icons.dart';
 
@@ -54,7 +56,8 @@ class SinglePostWidget extends ConsumerWidget {
           12.height,
           PostInteractionRow(
             state: state,
-            onCommentLick: () {},
+            onCommentLick: () =>
+                context.push("${PostCommentPopUpScreen.route}/${state.id}"),
             reactionChangeCallback: (current, newReaction) {
               final notifier = ref.read(
                 singlePostStateProvider(post.id!).notifier,
@@ -193,7 +196,11 @@ class PostActivityRowWidget extends StatelessWidget {
               Text(
                 () {
                   final currentLikeCount = state.likeCount ?? 0;
-                  String text = "$currentLikeCount Other";
+
+                  String text = "$currentLikeCount Likes";
+                  if (currentLikeCount != 0) {
+                    text = "$currentLikeCount Others";
+                  }
                   final hasMe = state.like?.toReaction != null;
                   if (hasMe) {
                     text = "You and ${currentLikeCount - 1} other";

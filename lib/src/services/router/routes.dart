@@ -1,4 +1,5 @@
 import 'package:ezy_course_app/src/features/authentication/views/login_screen.dart';
+import 'package:ezy_course_app/src/features/comment/views/comment_screen.dart';
 import 'package:ezy_course_app/src/features/create_post/views/create_post_screen.dart';
 import 'package:ezy_course_app/src/features/news_feed/views/news_feed.dart';
 import 'package:ezy_course_app/src/services/authentication/authentication_service.dart';
@@ -31,6 +32,14 @@ final goRouterProvider = Provider<GoRouter>(
           path: CreatePostScreen.route,
           pageBuilder: (context, state) => const AnimatedDialogueBuilder(
             child: CreatePostScreen(),
+          ),
+        ),
+        GoRoute(
+          path: "${PostCommentPopUpScreen.route}/:feedId",
+          pageBuilder: (context, state) => AnimatedDialogueBuilder(
+            child: PostCommentPopUpScreen(
+              feedId: int.parse(state.pathParameters['feedId']!,),
+            ),
           ),
         ),
       ],

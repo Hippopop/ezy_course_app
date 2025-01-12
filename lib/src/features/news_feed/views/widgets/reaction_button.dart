@@ -89,6 +89,9 @@ class _ReactionButtonState extends State<ReactionButton> {
         final screenWidth = MediaQuery.of(context).size.width;
         double left = details.globalPosition.dx - 20;
         double top = details.globalPosition.dy - 60;
+        if (left > (screenWidth * 0.2)) {
+          left = screenWidth * 0.2;
+        }
         double width = screenWidth - left;
         final item = await showCustomDialogue(left, top, width);
         if (item != null) {
@@ -122,7 +125,7 @@ class ReactionRowWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: Reaction.values.length,
           itemBuilder: (BuildContext context, int index) {
-            final double offset = 15 + index * 5;
+            final double offset = 10 + index * 5;
             final option = Reaction.values[index];
             Widget button = IconButton(
               onPressed: () => onSelect(option),
@@ -142,7 +145,7 @@ class ReactionRowWidget extends StatelessWidget {
             }
             return AnimationConfiguration.staggeredList(
               position: index,
-              duration: Durations.medium4,
+              duration: Durations.short3,
               child: SlideAnimation(
                 verticalOffset: offset,
                 child: FadeInAnimation(child: button),

@@ -1,4 +1,6 @@
+import 'package:ezy_course_app/src/domain/server/post_repository/models/create_comment_response/create_comment_response.dart';
 import 'package:ezy_course_app/src/domain/server/post_repository/models/create_post_response/create_post_response.dart';
+import 'package:ezy_course_app/src/domain/server/post_repository/models/post_comment_response/post_comment_model.dart';
 import 'package:ezy_course_app/src/domain/server/post_repository/models/user_like_response/user_like_response.dart';
 import 'package:ezy_course_app/src/domain/server/source/helpers/request_handler_provider.dart';
 import 'package:ezy_course_app/src/features/news_feed/views/widgets/reaction_button.dart';
@@ -31,5 +33,15 @@ abstract class PostRepository {
   Future<ResponseWrapper<CreatePostResponse>> createPost({
     required String post,
     required int? gradientIndex,
+  });
+
+  Future<ResponseWrapper<List<PostCommentModel>>> getComments({
+    required int feedId,
+  });
+
+  Future<ResponseWrapper<CreateCommentResponse>> createComments({
+    required int feedId,
+    required int feedUserId,
+    required String commentText,
   });
 }

@@ -8,6 +8,7 @@ final class IconAssets {
 
   ///svg!
   static const String menu = "$_iconsFolder/menu.svg";
+  static const String sent = "$_iconsFolder/sent.svg";
   static const String community = "$_iconsFolder/community.svg";
   static const String logout = "$_iconsFolder/logout.svg";
   static const String thumbsUp = "$_iconsFolder/thumbs_up.svg";
@@ -31,4 +32,5 @@ final class ImageAssets {
   static const String bubbleBg = "$_imagesFolder/bubble_bg.png";
   static const String loginBg = "$_imagesFolder/login_bg.png";
   static const String user = "$_imagesFolder/user.png";
+  static const String userCircular = "$_imagesFolder/user_circular.png";
 }
